@@ -5,7 +5,7 @@ class BrowserBotty {
 
     constructor( driver ){
 
-        this.debugMode = true;
+        this.debugMode = false;
         this.driver = driver;
     }
 
@@ -28,7 +28,6 @@ class BrowserBotty {
 
     async gotoUrl( url ){
 
-        url = this.addCredentialsToUrl( url );
         await this.driver.get(url);
     }
 
@@ -228,6 +227,17 @@ class BrowserBotty {
 
             let url = await driver.getCurrentUrl();
             return url.match( pattern );
+
+        }, timeoutMs );
+    }
+
+    async waitUntilUrlIs( expectedUrl, timeoutMs ){
+
+        let driver = this.driver;
+        await driver.wait( async ()=>{
+
+            let url = await driver.getCurrentUrl();
+            return url===expectedUrl;
 
         }, timeoutMs );
     }
