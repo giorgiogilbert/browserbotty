@@ -1,0 +1,30 @@
+{
+  "name": "browserbotty",
+  "version": "1.0.0",
+  "description": "Simple set of utility functions for browsing, web-testing and scraping websites. Built on top of Selenium webdriver.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giorgiogilbert/browserbotty.git"
+  },
+  "keywords": [
+    "scraping",
+    "webtesting",
+    "selenium",
+    "browser",
+    "bot"
+  ],
+  "author": "Giorgio Gilberti",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/giorgiogilbert/browserbotty/issues"
+  },
+  "homepage": "https://github.com/giorgiogilbert/browserbotty#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.7.0"
+  }
+
+}
