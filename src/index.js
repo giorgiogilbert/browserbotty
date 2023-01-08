@@ -72,8 +72,21 @@ class BrowserBotty {
 
     async findInPage( cssSelector ){
 
-        const el = await this.driver.findElement(By.css(cssSelector));
-        return el;
+        const els = await this.driver.findElements(By.css(cssSelector));
+        return els;
+    }
+    
+    async findInPageSingle( cssSelector ){
+
+        try {
+            const el = await this.driver.findElement(By.css(cssSelector));
+            return el;
+        } catch( e ){
+            if( e.name === "NoSuchElementError" || e.name === "NoSuchElementException" ){
+               return null;
+            }
+            throw e;
+        }
     }
 
     async typeIntoTextInput( formObject, cssSelector, text ){
