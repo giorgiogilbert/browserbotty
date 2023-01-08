@@ -1,7 +1,7 @@
 {
   "name": "browserbotty",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple set of utility functions for browsing, web-testing and scraping websites. Built on top of Selenium webdriver.",
   "main": "src/index.js",
   "scripts": {
