@@ -75,7 +75,6 @@ class BrowserBotty {
         const els = await this.driver.findElements(By.css(cssSelector));
         return els;
     }
-    
     async findInPageSingle( cssSelector ){
 
         try {
@@ -89,6 +88,12 @@ class BrowserBotty {
         }
     }
 
+    async getChildren( element, cssSelector ){
+
+        const children = await element.findElements(By.css(cssSelector));
+        return children;
+    }
+
     async typeIntoTextInput( formObject, cssSelector, text ){
 
         let input = await formObject.findElement(By.css( cssSelector ));
@@ -97,7 +102,7 @@ class BrowserBotty {
 
     async getText( cssSelector ){
 
-        let item = await this.findInPage(cssSelector);
+        let item = await this.findInPageSingle(cssSelector);
         let text = await item.getText();
         return text;
     }
@@ -105,7 +110,7 @@ class BrowserBotty {
     async switchToIframeInWrapper( wrapperCssSelector ){
 
         // iframe tag is required to have own ID
-        let wrapper = await this.findInPage( wrapperCssSelector );
+        let wrapper = await this.findInPageSingle( wrapperCssSelector );
         let iframe = await wrapper.findElement(By.css('iframe'));
         let iframeId = await iframe.getAttribute('id');
         await this.driver.switchTo().frame( iframeId );
